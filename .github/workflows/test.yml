@@ -16,7 +16,7 @@
 
 name: Required Label Reviews
 on:
-  pull_request:
+  pull_request_review:
     types: [opened, reopened, labeled, unlabeled]
 jobs:
   required-label-reviews:
@@ -26,4 +26,3 @@ jobs:
       - uses: lvegerano/label-required-approvals@v1.0.0
         env:
           GITHUB_TOKEN: ${{  secrets.GITHUB_TOKEN }}
-          
