@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: lvegerano/label-required-approvals@v1
+      - uses: lvegerano/label-required-approvals@v1.0.0
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
