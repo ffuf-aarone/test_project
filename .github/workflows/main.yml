@@ -1,11 +1,6 @@
 name: Label approveal pull requests
 
 on: pull_request_review
-  types:
-    - submitted
-    - edited
-    - dismissed
-
 jobs:
   labelWhenApproved:
     name: Label when approved
