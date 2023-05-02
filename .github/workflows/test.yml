@@ -17,7 +17,7 @@
 name: Required Label Reviews
 on:
   pull_request_review:
-    types: [opened, reopened, labeled, unlabeled]
+  
 jobs:
   required-label-reviews:
     runs-on: ubuntu-latest
