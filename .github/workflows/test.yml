@@ -1,15 +1,27 @@
-name: Test Action
+#on: pull_request_review
+#name: Flutter Workflow
+#jobs:
+#  labelWhenApproved:
+#    name: Label when approved
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Label when approved
+#        uses: pullreminders/label-when-approved-action@master
+#        env:
+#          APPROVALS: "2"
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          ADD_LABEL: "ffuf-yoki"
+#          REMOVE_LABEL: "awaiting%20review"
 
-on:
-  pull_request:
-    types: [opened, reopened, synchronize, labeled, unlabeled]
 
+name: Required Label Reviews
+on: pull_request_review
 jobs:
-  test:
+  required-label-reviews:
     runs-on: ubuntu-latest
-    name: Check if the PR requires a specifit team approval
     steps:
       - uses: actions/checkout@v3
       - uses: ./
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
+
