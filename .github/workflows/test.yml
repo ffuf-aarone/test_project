@@ -15,13 +15,15 @@
 
 
 name: Required Label Reviews
-on: pull_request_review
+on:
+  pull_request:
+    types: [opened, reopened, labeled, unlabeled]
 jobs:
-  required-approvals:
+  required-label-reviews:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: eeee
-        uses: lvegerano/label-required-approvals@v1.0.0
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: lvegerano/label-required-approvals@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{  secrets.GITHUB_TOKEN }}
+          
