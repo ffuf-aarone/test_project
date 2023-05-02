@@ -27,5 +27,5 @@ jobs:
         uses: lvegerano/label-required-approvals@v1.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          configureation-path: .github/team-approvers.yml
+          configuration-path: .github/team-approvers.yml
           status: ffuf-yoki
