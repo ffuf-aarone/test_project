@@ -1,14 +1,30 @@
-on: pull_request_review
-name: Flutter Workflow
-jobs:
-  labelWhenApproved:
-    name: Label when approved
-    runs-on: ubuntu-latest
-    steps:
-      - name: Label when approved
-        uses: pullreminders/label-when-approved-action@master
-        env:
-          APPROVALS: "2"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ADD_LABEL: "ffuf-yoki"
-          REMOVE_LABEL: "awaiting%20review"
+#on: pull_request_review
+#name: Flutter Workflow
+#jobs:
+#  labelWhenApproved:
+#    name: Label when approved
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Label when approved
+#        uses: pullreminders/label-when-approved-action@master
+#        env:
+#          APPROVALS: "2"
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          ADD_LABEL: "ffuf-yoki"
+#          REMOVE_LABEL: "awaiting%20review"
+
+
+name: label-required-approvals
+on:
+  pull_request_review:
+  pull_request:
+    types: [opened, reopened, labeled, unlabeled]
+  jobs
+required-approvals:
+  runs-on: ubuntu-latest
+  steps:
+    uses: lvegerano/label-required-approvals@v1
+    with:
+      repo-token: ${{ secrets.GITHUB_TOKEN }}
+      configureation-path: .github/team-approvers.yml
+      status: ffuf-yoki
