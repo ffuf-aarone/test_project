@@ -26,5 +26,5 @@ jobs:
       - uses: actions/checkout@v3
       - uses: lvegerano/label-required-approvals@v1.0.0
         with:
-          repo-token: ${{ secrets.BOT_PAT }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           status: 'Label Required Reviews'
