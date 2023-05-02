@@ -20,9 +20,8 @@ jobs:
   required-label-reviews:
     runs-on: ubuntu-latest
     steps:
-      - name: aaaa
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: eeee
         uses: lvegerano/label-required-approvals@v1
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
